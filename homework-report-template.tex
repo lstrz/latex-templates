@@ -1,0 +1,71 @@
+% Space is not at premium since so 12pt is a good choice.
+% There is no particular need for double sided document if it is not printed.
+% Other options also make sense when considering the use case.
+\documentclass[12pt, a4paper, final, onecolumn, oneside]{article}
+
+% Big margins would waste space which may be used to neatly display figures.
+% We could set them manually, but it's much more convenient with geometry package.
+% Showframe may be used to see the margins while setting them.
+%\usepackage{showframe}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+% We want to have good-looking clickable URLs to external docs,
+% without having the red default borders around them.
+\usepackage[pdfborder={0 0 0}]{hyperref}
+
+% Not a necessity but some think it looks better when
+% indenting the first paragraph as well.
+\usepackage{indentfirst}
+
+% Used to neatly manage pictures, not much to say about this one.
+\usepackage{graphicx}
+
+% We want the figures of each task to appear strictly in that task (section).
+\usepackage[section]{placeins}
+
+% For better looking captioning of figures.
+\usepackage{caption}
+
+\begin{document}
+% Hardcoded title page. Just some large text and a few \vspace commands.
+% A picture could be also included here.
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE Awesome University of Technology \\}
+	\vspace{1.4in}
+	{\scshape\Large C0U25E C0D3  \\}
+	\vspace{0.1in}
+	{\LARGE\bfseries Course Name \\}
+	\vspace{1.4in}
+	{\scshape\LARGE Homework Report \\}
+	\vspace{0.1in}
+	{\scshape\Large Introduction to That Awesome Topic \\}
+	\vspace{1.4in}
+	{\Large\itshape Author 1 \hfill Author 2 \hfill Author 3 \\}
+	\vfill
+	{\large \today \\}
+\end{titlepage}
+
+% We use starred sections to that no number is printed, and that's more or less it.
+% Subsections may be used to differentiate subtasks or to write the problem before the solution.
+\section*{Assignment 1}
+
+\subsection*{Task}
+
+In Task 1 you must find the solution to problems such and such.
+
+\subsection*{Result}
+
+Solution to problems such and such is this and that.
+
+\section*{Assignment 2}
+
+\subsection*{Task}
+
+Description of problem 2.
+
+\subsection*{Result}
+
+Solution of problem 2.
+
+\end{document}
