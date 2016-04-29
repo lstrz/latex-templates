@@ -1,0 +1,147 @@
+% Space is at premium since we intend to be limited on one page.
+% 10pt is small enough, yet readable. Other options also make sense when considering the use case.
+\documentclass[10pt, a4paper, final, onecolumn, oneside, notitlepage]{article}
+
+% Big margins would waste valuable space.
+% We could set them manually, but it's much more convenient with geometry package.
+% Showframe may be used to see the margins while setting them.
+%\usepackage{showframe}
+\usepackage[top=0.25in, bottom=0.25in, left=0.5in, right=0.5in]{geometry}
+
+% We want to have good-looking clickable URLs to personal homepage or mailto links,
+% without having the red default borders around them.
+\usepackage[pdfborder={0 0 0}]{hyperref}
+
+% Fontawesome is used for the cool icons used throughout the CV
+\usepackage{fontawesome}
+
+% Entries in each CV section will be arranged into borderless tables.
+% To make the tables more distinguishable, each will be colored in a light gray color, except for the table's description.
+\usepackage{colortbl}
+\newcommand{\gray}{\rowcolor[gray]{.92}} % For simplicity, the new gray command is defined.
+
+% Spacing and rules between CV sections and between tables in a section
+% Change the space between and within sections so that conent fits
+% on A4 nicely
+\newcommand{\sectionspacing}[0]{ \vspace{40pt} } % Space between sections
+\newcommand{\innersectionspacing}[0]{ \vspace{20pt} } % Space within section between tables
+\newcommand{\sectionrule}[0]{ \rule[6pt]{\textwidth}{0.5pt} } % Rule between sections
+\newcommand{\tablerule}[0]{ \rule{0pt}{13pt} } % Vertical rule, for a description after each table, to make the description a few pixels lower under the gray part of the table.
+
+% Redefined \section{} command so that it looks like we want it
+\renewcommand{\section}[1]{\sectionspacing {\large \scshape #1} \sectionrule}
+
+
+
+
+\begin{document}
+\begin{center}
+\pagenumbering{gobble} % Turn off page numbering
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% NAME AND INFO %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% If the \Huge size is too small for a particular use, link below should be consulted
+% https://en.wikibooks.org/wiki/LaTeX/Fonts#Arbitrary_font_size
+{
+\Huge
+\scshape
+John Doe
+}
+
+\innersectionspacing
+
+% There are many other cool icons or social networks or contact info that could be used here
+{
+{\large\faHome} City, Country
+\hspace{16pt}
+{\large\faEnvelope} \href{mailto:cool@mailto.link}{\texttt{my@email.address}}
+
+{\large\faGlobe} \href{http://my.web.address}{\texttt{my.web.address}}
+\hspace{16pt}
+{\large\faGithub} \href{http://www.github.com/GitHubUsername}{\texttt{/GitHubUsername}}
+\hspace{16pt}
+{\large\faLinkedin} \href{http://www.linkedin.com/in/LikedInUsername}{\texttt{/in/LikedInUsername}}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% WORK EXPERIENCE %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The table's code may be a bit tedious to read.
+% An option is to make \newcommand for the row entries, but
+% this way offers more flexibility which I personally did use.
+
+% Paragraph width factors were determined experimentally, sadly.
+\section{Work Experience}
+\begin{tabular}{ >{\hfill}p{0.132\textwidth} p{0.822\textwidth} }
+\gray {\scshape Employer} & \textbf{Company A} \hfill City, Country \\
+\gray {\scshape Period} & \textbf{Jan 2015 --- present} \\
+\gray {\scshape Job Title} & \textbf{Spacecraft Designer} \\
+\tablerule & Designed nanocrafts for the 20 year journey to Alpha Centauri.
+\end{tabular}
+
+\innersectionspacing
+
+\begin{tabular}{ >{\hfill}p{0.132\textwidth} p{0.822\textwidth} }
+\gray {\scshape Employer} & \textbf{Company B} \hfill City, Country \\
+\gray {\scshape Period} & \textbf{Jan 2013 --- Jan 2015} \\
+\gray {\scshape Job Title} & \textbf{Embedded Software Engineering Intern}\\
+\gray {\scshape Technologies} & \textbf{C, VHDL, Verilog, Altium Designer, Git}\\
+\tablerule & Worked on the firmware for the latest and fastest self-driving vehicle. Focused on battery subsystem and infotainment.
+\end{tabular}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% EDUCATION %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education}
+\begin{tabular}{ >{\hfill}p{0.132\textwidth} p{0.822\textwidth} }
+\gray {\scshape Degree} & \textbf{Master of Aerospace Engineering} \\
+\gray {\scshape University} & \textbf{University of City X} \hfill City X, Country \\
+\gray {\scshape Period} & \textbf{October 2015 --- July 2017} (expected)
+\end{tabular}
+
+\innersectionspacing
+
+\begin{tabular}{ >{\hfill}p{0.132\textwidth} p{0.822\textwidth} }
+\gray {\scshape Degree} & \textbf{Bachelor of Science in Computing} (Major in Z) \\
+\gray {\scshape University} & \textbf{University of City Y} \hfill City Y, Country \\
+\gray {\scshape Period} & \textbf{October 2011 --- July 2015} \\
+\tablerule Thesis & My Awesome Thesis Title \\
+Extracurricular & Student Assistant in Course 1, Course 2 and Course 3 \\
+& Alpha Beta Gamma \\
+& Rowing team
+\end{tabular}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% ACTIVITIES %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Activities}
+\begin{tabular}{ >{\hfill}p{0.346\textwidth} p{0.608\textwidth} }
+\textbf{IOI 2012} & Silver medal \\
+\textbf{Awesome Hackathon} & 1st place out of 20 teams \\
+\end{tabular}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% SKILLS %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Skills}
+\begin{tabular}{ >{\hfill}p{0.346\textwidth} p{0.608\textwidth} }
+\textbf{Programming Languages} & {\faHeart} C, {\faHeart} VHDL, Java \\
+Under 10k LoC & Python, Java, JavaScript \\
+\textbf{Other Technologies} & Altium Designer, Eagle CAD and hardware design \\
+& embedded prorgamming \\
+\textbf{Spoken Languages} & Esperanto native, English C1, German B1, French A1\\
+\end{tabular}
+
+\end{center}
+\end{document}
